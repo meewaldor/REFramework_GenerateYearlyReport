@@ -124,9 +124,21 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Precondition: the Monthly Report Page be open in the ACME System 1 application." DisplayName="System1_CreateYearlyReport" sap:VirtualizedContainerService.HintSize="784,3742" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_YearlyReport" />
-      <Variable x:TypeArguments="x:Boolean" Name="blnReportNotFound" />
-      <Variable x:TypeArguments="s:String[]" Name="arrMonth" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_YearlyReport">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="new DataTable" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Name="blnReportNotFound">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Boolean" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="s:String[]" Name="arrMonth">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;}" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="ReportFilePath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -135,7 +147,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Download Monthly Report" sap:VirtualizedContainerService.HintSize="722,3623.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="40321e27-2602-4a7d-bfaa-2103bd5efed9" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Download Monthly Report" sap:VirtualizedContainerService.HintSize="722,3623.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="40321e27-2602-4a7d-bfaa-2103bd5efed9" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -149,10 +161,10 @@
             </sap:WorkflowViewStateService.ViewState>
             <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Vendor TaxID'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="626,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="40321e27-2602-4a7d-bfaa-2103bd5efed9" Text="[in_TaxID]" Version="V4">
               <uix:NTypeInto.Target>
-                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="c4af2510-9eb0-4c0e-a0c0-3ce5d988bc0a" CvElementArea="206, 651, 730, 56" CvType="InputBox" DesignTimeRectangle="209, 654, 727, 51" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="60d9d690-4c96-4610-9365-2a141f34c78b" InformativeScreenshot="5184221693374737014b36bc2b0a83e5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Download Monthly Report' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="d0d8cbd1-afa1-43a5-936e-a8a1cc05f8b2" CvElementArea="206, 651, 730, 56" CvType="InputBox" DesignTimeRectangle="209, 654, 727, 51" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="ad422438-d227-4c30-8a34-aa80bb00c55f" InformativeScreenshot="f9d833a41d68fd413d19fa7f9aaae5b1.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Download Monthly Report' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="c4af2510-9eb0-4c0e-a0c0-3ce5d988bc0a" CvTextArea="205, 621, 142, 19" CvTextArgument="Vendor TaxID:" CvType="Text" DesignTimeRectangle="209, 617, 139, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Vendor TaxID:' check:innerText='Vendor TaxID:' /&gt;" Guid="736cbada-9baa-49e1-847d-7070392d816a" SearchSteps="FuzzySelector, CV" />
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="d0d8cbd1-afa1-43a5-936e-a8a1cc05f8b2" CvTextArea="205, 621, 142, 19" CvTextArgument="Vendor TaxID:" CvType="Text" DesignTimeRectangle="209, 617, 139, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Vendor TaxID:' check:innerText='Vendor TaxID:' /&gt;" Guid="4593c283-4f91-409d-b046-4a63f306fd1a" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
                 </uix:TargetAnchorable>
@@ -168,7 +180,7 @@
                 </uix:VerifyExecutionTypeIntoOptions>
               </uix:NTypeInto.VerifyOptions>
             </uix:NTypeInto>
-            <uix:NSelectItem DisplayName="Select Item '---'" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[in_Year]" ScopeIdentifier="40321e27-2602-4a7d-bfaa-2103bd5efed9" Version="V4">
+            <uix:NSelectItem DisplayName="Select Item Year" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[in_Year]" ScopeIdentifier="40321e27-2602-4a7d-bfaa-2103bd5efed9" Version="V4">
               <uix:NSelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="3">
                   <x:String>---</x:String>
